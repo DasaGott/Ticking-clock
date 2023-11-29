@@ -61,6 +61,7 @@ button:focus {
 .clock {
   width: 200px;
   height: 200px;
+  margin-bottom: 100px;
 }
 
 .needle {
@@ -71,7 +72,7 @@ button:focus {
   height: 65px;
   width: 2px;
   transform-origin: bottom center;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in;
 }
 
 .needle.hour {

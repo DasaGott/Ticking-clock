@@ -8,13 +8,13 @@ const dateEl = document.querySelector(".date");
 const toggle = document.querySelector(".toggle");
 
 const days = [
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
 ];
 const months = [
   "January",
@@ -41,3 +41,65 @@ toggle.addEventListener("click", (e) => {
     e.target.innerHTML = "Light mode";
   }
 });
+
+function setTime() {
+  const time = new Date();
+  const month = months[time.getMonth()];
+  const day = days[time.getDay()];
+  const date = time.getDate();
+  const hours = time.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  const minutes = time.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  const second = time.getSeconds();
+
+  hourEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    hours,
+    0,
+    11,
+    0,
+    360
+  )}deg)`;
+
+  minuteEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    minutes,
+    0,
+    59,
+    0,
+    360
+  )}deg)`;
+
+  secondEl.style.transform = `translate(-50%, -100%) rotate(${scale(
+    second,
+    0,
+    59,
+    0,
+    360
+  )}deg)`;
+
+  timeEl.innerHTML = `${hours} : ${minutes}`;
+  dateEl.innerHTML = `${day}, ${month} <span class="day">${date}</span>`;
+}
+
+// StackOverflow https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+const scale = (
+  num,
+  in_min,
+  in_max,
+  out_min,
+  out_max
+) => {
+  return (
+    ((num - in_min) * (out_max - out_min)) /
+      (in_max - in_min) +
+    out_min
+  );
+};
+
+setTime();
+
+setInterval(setTime, 1000);
