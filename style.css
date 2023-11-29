@@ -135,7 +135,7 @@ button:focus {
   transition: all 0.5s ease-in;
 }
 
-@media only screen and (max-width: 675px) {
+@media only screen and (max-width: 975px) {
   button.toggle {
     position: absolute;
     top: 20px;
