@@ -6,7 +6,7 @@
 }
 
 html {
-  transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in-out;
 }
 
 html.dark {
@@ -15,7 +15,7 @@ html.dark {
 }
 
 html.dark {
-  background-color: #fff;
+  background-color: var(--secondary-color);
   color: var(--primary-color);
 }
 
@@ -42,7 +42,7 @@ button.toggle {
   position: absolute;
   top: 100px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in;
   font-size: 13px;
 }
 
@@ -131,5 +131,5 @@ button:focus {
   justify-content: center;
   align-items: center;
   line-height: 20px;
-  transition: all 0.3s ease-in;
+  transition: all 0.5s ease-in;
 }
