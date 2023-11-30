@@ -47,11 +47,11 @@ function setTime() {
   const month = months[time.getMonth()];
   const day = days[time.getDay()];
   const date = time.getDate();
-  const hours = time.getHours();
+  let hours = time.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  const minutes = time.getMinutes();
+  let minutes = time.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -99,7 +99,6 @@ const scale = (
     out_min
   );
 };
-
 setTime();
 
 setInterval(setTime, 1000);
